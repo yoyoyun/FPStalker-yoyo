@@ -1,0 +1,155 @@
+"Epoch 00001: val_loss improved from inf to 0.64105, saving model to ./data/my_ml_model_test_04082348"
+Epoch 2/40
+ - 0s - loss: 0.6356 - acc: 0.6974 - binary_accuracy: 0.6974 - val_loss: 0.5953 - val_acc: 0.8304 - val_binary_accuracy: 0.8304
+
+"Epoch 00002: val_loss improved from 0.64105 to 0.59527, saving model to ./data/my_ml_model_test_04082348"
+Epoch 3/40
+ - 0s - loss: 0.5987 - acc: 0.7693 - binary_accuracy: 0.7693 - val_loss: 0.5493 - val_acc: 0.8754 - val_binary_accuracy: 0.8754
+
+"Epoch 00003: val_loss improved from 0.59527 to 0.54931, saving model to ./data/my_ml_model_test_04082348"
+Epoch 4/40
+ - 0s - loss: 0.5712 - acc: 0.7801 - binary_accuracy: 0.7801 - val_loss: 0.4999 - val_acc: 0.8910 - val_binary_accuracy: 0.8910
+
+"Epoch 00004: val_loss improved from 0.54931 to 0.49994, saving model to ./data/my_ml_model_test_04082348"
+Epoch 5/40
+ - 0s - loss: 0.5313 - acc: 0.8281 - binary_accuracy: 0.8281 - val_loss: 0.4473 - val_acc: 0.9048 - val_binary_accuracy: 0.9048
+
+"Epoch 00005: val_loss improved from 0.49994 to 0.44735, saving model to ./data/my_ml_model_test_04082348"
+Epoch 6/40
+ - 0s - loss: 0.4979 - acc: 0.8260 - binary_accuracy: 0.8260 - val_loss: 0.3980 - val_acc: 0.9118 - val_binary_accuracy: 0.9118
+
+"Epoch 00006: val_loss improved from 0.44735 to 0.39802, saving model to ./data/my_ml_model_test_04082348"
+Epoch 7/40
+ - 0s - loss: 0.4491 - acc: 0.8420 - binary_accuracy: 0.8420 - val_loss: 0.3480 - val_acc: 0.9187 - val_binary_accuracy: 0.9187
+
+"Epoch 00007: val_loss improved from 0.39802 to 0.34797, saving model to ./data/my_ml_model_test_04082348"
+Epoch 8/40
+ - 0s - loss: 0.4242 - acc: 0.8476 - binary_accuracy: 0.8476 - val_loss: 0.3075 - val_acc: 0.9308 - val_binary_accuracy: 0.9308
+
+"Epoch 00008: val_loss improved from 0.34797 to 0.30747, saving model to ./data/my_ml_model_test_04082348"
+Epoch 9/40
+ - 0s - loss: 0.3817 - acc: 0.8645 - binary_accuracy: 0.8645 - val_loss: 0.2679 - val_acc: 0.9412 - val_binary_accuracy: 0.9412
+
+"Epoch 00009: val_loss improved from 0.30747 to 0.26787, saving model to ./data/my_ml_model_test_04082348"
+Epoch 10/40
+ - 0s - loss: 0.3508 - acc: 0.8727 - binary_accuracy: 0.8727 - val_loss: 0.2383 - val_acc: 0.9412 - val_binary_accuracy: 0.9412
+
+"Epoch 00010: val_loss improved from 0.26787 to 0.23827, saving model to ./data/my_ml_model_test_04082348"
+Epoch 11/40
+ - 0s - loss: 0.3418 - acc: 0.8654 - binary_accuracy: 0.8654 - val_loss: 0.2255 - val_acc: 0.9343 - val_binary_accuracy: 0.9343
+
+"Epoch 00011: val_loss improved from 0.23827 to 0.22552, saving model to ./data/my_ml_model_test_04082348"
+Epoch 12/40
+ - 0s - loss: 0.3067 - acc: 0.8818 - binary_accuracy: 0.8818 - val_loss: 0.2029 - val_acc: 0.9446 - val_binary_accuracy: 0.9446
+
+"Epoch 00012: val_loss improved from 0.22552 to 0.20292, saving model to ./data/my_ml_model_test_04082348"
+Epoch 13/40
+ - 0s - loss: 0.3127 - acc: 0.8732 - binary_accuracy: 0.8732 - val_loss: 0.2222 - val_acc: 0.9083 - val_binary_accuracy: 0.9083
+
+Epoch 00013: val_loss did not improve
+Epoch 14/40
+ - 0s - loss: 0.2774 - acc: 0.8883 - binary_accuracy: 0.8883 - val_loss: 0.1854 - val_acc: 0.9377 - val_binary_accuracy: 0.9377
+
+"Epoch 00014: val_loss improved from 0.20292 to 0.18538, saving model to ./data/my_ml_model_test_04082348"
+Epoch 15/40
+ - 0s - loss: 0.2673 - acc: 0.8961 - binary_accuracy: 0.8961 - val_loss: 0.1794 - val_acc: 0.9343 - val_binary_accuracy: 0.9343
+
+"Epoch 00015: val_loss improved from 0.18538 to 0.17943, saving model to ./data/my_ml_model_test_04082348"
+Epoch 16/40
+ - 0s - loss: 0.2591 - acc: 0.8970 - binary_accuracy: 0.8970 - val_loss: 0.1530 - val_acc: 0.9550 - val_binary_accuracy: 0.9550
+
+"Epoch 00016: val_loss improved from 0.17943 to 0.15297, saving model to ./data/my_ml_model_test_04082348"
+Epoch 17/40
+ - 0s - loss: 0.2462 - acc: 0.9069 - binary_accuracy: 0.9069 - val_loss: 0.1382 - val_acc: 0.9689 - val_binary_accuracy: 0.9689
+
+"Epoch 00017: val_loss improved from 0.15297 to 0.13819, saving model to ./data/my_ml_model_test_04082348"
+Epoch 18/40
+ - 0s - loss: 0.2331 - acc: 0.9100 - binary_accuracy: 0.9100 - val_loss: 0.1271 - val_acc: 0.9706 - val_binary_accuracy: 0.9706
+
+"Epoch 00018: val_loss improved from 0.13819 to 0.12713, saving model to ./data/my_ml_model_test_04082348"
+Epoch 19/40
+ - 0s - loss: 0.2190 - acc: 0.9147 - binary_accuracy: 0.9147 - val_loss: 0.1215 - val_acc: 0.9723 - val_binary_accuracy: 0.9723
+
+"Epoch 00019: val_loss improved from 0.12713 to 0.12153, saving model to ./data/my_ml_model_test_04082348"
+Epoch 20/40
+ - 0s - loss: 0.2051 - acc: 0.9277 - binary_accuracy: 0.9277 - val_loss: 0.1003 - val_acc: 0.9827 - val_binary_accuracy: 0.9827
+
+"Epoch 00020: val_loss improved from 0.12153 to 0.10033, saving model to ./data/my_ml_model_test_04082348"
+Epoch 21/40
+ - 0s - loss: 0.1816 - acc: 0.9346 - binary_accuracy: 0.9346 - val_loss: 0.0944 - val_acc: 0.9810 - val_binary_accuracy: 0.9810
+
+"Epoch 00021: val_loss improved from 0.10033 to 0.09436, saving model to ./data/my_ml_model_test_04082348"
+Epoch 22/40
+ - 0s - loss: 0.1850 - acc: 0.9325 - binary_accuracy: 0.9325 - val_loss: 0.1009 - val_acc: 0.9792 - val_binary_accuracy: 0.9792
+
+Epoch 00022: val_loss did not improve
+Epoch 23/40
+ - 0s - loss: 0.1625 - acc: 0.9489 - binary_accuracy: 0.9489 - val_loss: 0.0910 - val_acc: 0.9792 - val_binary_accuracy: 0.9792
+
+"Epoch 00023: val_loss improved from 0.09436 to 0.09098, saving model to ./data/my_ml_model_test_04082348"
+Epoch 24/40
+ - 0s - loss: 0.1635 - acc: 0.9459 - binary_accuracy: 0.9459 - val_loss: 0.0822 - val_acc: 0.9844 - val_binary_accuracy: 0.9844
+
+"Epoch 00024: val_loss improved from 0.09098 to 0.08221, saving model to ./data/my_ml_model_test_04082348"
+Epoch 25/40
+ - 0s - loss: 0.1367 - acc: 0.9589 - binary_accuracy: 0.9589 - val_loss: 0.1018 - val_acc: 0.9758 - val_binary_accuracy: 0.9758
+
+Epoch 00025: val_loss did not improve
+Epoch 26/40
+ - 0s - loss: 0.1513 - acc: 0.9498 - binary_accuracy: 0.9498 - val_loss: 0.0610 - val_acc: 0.9931 - val_binary_accuracy: 0.9931
+
+"Epoch 00026: val_loss improved from 0.08221 to 0.06101, saving model to ./data/my_ml_model_test_04082348"
+Epoch 27/40
+ - 0s - loss: 0.1387 - acc: 0.9506 - binary_accuracy: 0.9506 - val_loss: 0.0565 - val_acc: 0.9931 - val_binary_accuracy: 0.9931
+
+"Epoch 00027: val_loss improved from 0.06101 to 0.05649, saving model to ./data/my_ml_model_test_04082348"
+Epoch 28/40
+ - 0s - loss: 0.1202 - acc: 0.9632 - binary_accuracy: 0.9632 - val_loss: 0.0562 - val_acc: 0.9931 - val_binary_accuracy: 0.9931
+
+"Epoch 00028: val_loss improved from 0.05649 to 0.05624, saving model to ./data/my_ml_model_test_04082348"
+Epoch 29/40
+ - 0s - loss: 0.1326 - acc: 0.9554 - binary_accuracy: 0.9554 - val_loss: 0.0527 - val_acc: 0.9965 - val_binary_accuracy: 0.9965
+
+"Epoch 00029: val_loss improved from 0.05624 to 0.05271, saving model to ./data/my_ml_model_test_04082348"
+Epoch 30/40
+ - 0s - loss: 0.1123 - acc: 0.9680 - binary_accuracy: 0.9680 - val_loss: 0.0742 - val_acc: 0.9758 - val_binary_accuracy: 0.9758
+
+Epoch 00030: val_loss did not improve
+Epoch 31/40
+ - 0s - loss: 0.1097 - acc: 0.9662 - binary_accuracy: 0.9662 - val_loss: 0.0576 - val_acc: 0.9913 - val_binary_accuracy: 0.9913
+
+Epoch 00031: val_loss did not improve
+Epoch 32/40
+ - 0s - loss: 0.1118 - acc: 0.9667 - binary_accuracy: 0.9667 - val_loss: 0.0563 - val_acc: 0.9896 - val_binary_accuracy: 0.9896
+
+Epoch 00032: val_loss did not improve
+Epoch 33/40
+ - 0s - loss: 0.1056 - acc: 0.9727 - binary_accuracy: 0.9727 - val_loss: 0.0589 - val_acc: 0.9844 - val_binary_accuracy: 0.9844
+
+Epoch 00033: val_loss did not improve
+Epoch 34/40
+ - 0s - loss: 0.0983 - acc: 0.9641 - binary_accuracy: 0.9641 - val_loss: 0.0531 - val_acc: 0.9879 - val_binary_accuracy: 0.9879
+
+Epoch 00034: val_loss did not improve
+Epoch 35/40
+ - 0s - loss: 0.0947 - acc: 0.9710 - binary_accuracy: 0.9710 - val_loss: 0.0386 - val_acc: 0.9965 - val_binary_accuracy: 0.9965
+
+"Epoch 00035: val_loss improved from 0.05271 to 0.03857, saving model to ./data/my_ml_model_test_04082348"
+Epoch 36/40
+ - 0s - loss: 0.0884 - acc: 0.9740 - binary_accuracy: 0.9740 - val_loss: 0.0393 - val_acc: 0.9965 - val_binary_accuracy: 0.9965
+
+Epoch 00036: val_loss did not improve
+Epoch 37/40
+ - 0s - loss: 0.1023 - acc: 0.9658 - binary_accuracy: 0.9658 - val_loss: 0.0440 - val_acc: 0.9965 - val_binary_accuracy: 0.9965
+
+Epoch 00037: val_loss did not improve
+Epoch 38/40
+ - 0s - loss: 0.0957 - acc: 0.9727 - binary_accuracy: 0.9727 - val_loss: 0.0467 - val_acc: 0.9913 - val_binary_accuracy: 0.9913
+
+Epoch 00038: val_loss did not improve
+Epoch 39/40
+ - 0s - loss: 0.0960 - acc: 0.9654 - binary_accuracy: 0.9654 - val_loss: 0.0440 - val_acc: 0.9965 - val_binary_accuracy: 0.9965
+
+Epoch 00039: val_loss did not improve
+Epoch 40/40
+ - 0s - loss: 0.0816 - acc: 0.9740 - binary_accuracy: 0.9740 - val_loss: 0.0506 - val_acc: 0.9827 - val_binary_accuracy: 0.9827
