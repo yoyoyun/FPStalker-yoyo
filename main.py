@@ -3,13 +3,13 @@ import time
 import os
 
 from fingerprint import Fingerprint
-from algo import replay_scenario, analyse_scenario_result, ml_based, generate_replay_sequence
-from algo import simple_eckersley, rule_based, split_data, optimize_lambda, train_ml
-from algo import benchmark_parallel_f_ml, benchmark_parallel_f_rules, parallel_pipe_task_ml_f, parallel_pipe_task_rules_f
+# from algo import replay_scenario, analyse_scenario_result, ml_based, generate_replay_sequence
+# from algo import simple_eckersley, rule_based, split_data, optimize_lambda, train_ml
+# from algo import benchmark_parallel_f_ml, benchmark_parallel_f_rules, parallel_pipe_task_ml_f, parallel_pipe_task_rules_f
 
-# from algoLSTM import replay_scenario, analyse_scenario_result, ml_based, generate_replay_sequence
-# from algoLSTM import simple_eckersley, rule_based, split_data, optimize_lambda, train_ml
-# from algoLSTM import benchmark_parallel_f_ml, benchmark_parallel_f_rules, parallel_pipe_task_ml_f, parallel_pipe_task_rules_f
+from algoLSTM import replay_scenario, analyse_scenario_result, ml_based, generate_replay_sequence
+from algoLSTM import simple_eckersley, rule_based, split_data, optimize_lambda, train_ml
+from algoLSTM import benchmark_parallel_f_ml, benchmark_parallel_f_rules, parallel_pipe_task_ml_f, parallel_pipe_task_rules_f
 
 from utils import get_consistent_ids, get_fingerprints_experiments
 import MySQLdb as mdb
@@ -166,6 +166,7 @@ def main(argv):
                         p25,
                         p75
                     ))
+
     endTime = time.time()
     executeTime = endTime - startTime
     with open("analyse/timerecord.txt","a") as f:

@@ -53,7 +53,7 @@ def generate_replay_sequence(fp_set, visit_frequency):
     for user_id in user_id_to_fps:
         # can be removed later when we don't set a limit on counter
         if len(user_id_to_fps[user_id]) > 1:
-            user_id_to_fps[user_id] = user_id_to_fps[user_id][:-1]
+            user_id_to_fps[user_id] = user_id_to_fps[user_id][:-1] #remove last fp
             sequence = []
             last_visit = user_id_to_fps[user_id][0].getStartTime()
 
@@ -328,7 +328,7 @@ def replay_scenario(fingerprint_dataset, visit_frequency, link_fingerprint, \
         link_fingerprint, the function used for the linking strategy
         filename, path to the file to save results of the scenario
     """
-    nb_max_cmp = 3
+    nb_max_cmp = 6 # obtain 6 known fingerprints for every assignedid
     replay_sequence = generate_replay_sequence(fingerprint_dataset, visit_frequency)
     counter_to_fingerprint = dict()
     for fingerprint in fingerprint_dataset:
@@ -452,7 +452,7 @@ def compute_similarity_fingerprint(fp1, fp2, attributes, train_mode):
 
 
 def train_ml(fingerprint_dataset, train_data, load=False,
-             model_path="./data/my_ml_model_bidiLSTM"):
+             model_path="./data/my_ml_model_bidiLSTM6"):
     if load:
         model = load_model(model_path)
     else:
@@ -527,7 +527,7 @@ def train_ml(fingerprint_dataset, train_data, load=False,
             for user_id in user_id_to_fps:
                 previous_fingerprint = None
                 ### 修改特征适应LSTM
-                if len(user_id_to_fps[user_id])<4: continue
+                if len(user_id_to_fps[user_id])<7: continue
                 x_seq = []
                 neg_vec = []
                 for fingerprint in user_id_to_fps[user_id]:
@@ -546,33 +546,22 @@ def train_ml(fingerprint_dataset, train_data, load=False,
                 assert(len(x_seq) == len(neg_vec))
                 zeros = np.zeros(shape=np.shape(x_seq[0]))
                 for i in range(len(x_seq)):
-                    # [seq_vec1, seq_vec2, seq_vec3
-                    if i < len(x_seq) - 2:
-                        X.append(np.stack(x_seq[i:i+3]))
+                    # [seq_vec1, seq_vec2, seq_vec3]
+                    if i < (len(x_seq) - 5):
+                        X.append(np.stack(x_seq[i:i+6]))
                         y.append([0,1])
                         pos_num += 1
-
-                        X.append(np.stack([x_seq[i],x_seq[i+1], neg_vec[i+2]]))
+                        X.append(np.stack([x_seq[i],x_seq[i+1], x_seq[i+2],x_seq[i+3],x_seq[i+4],neg_vec[i+5]]))
+                        y.append([1,0])
+                        neg_num += 1
+                    else:   # [zeros, seq_vec2, seq_vec3]
+                        X.append(np.stack([zeros] * (6-len(x_seq)+i) + x_seq[i:len(x_seq)]))
+                        y.append([0,1])
+                        pos_num += 1
+                        X.append(np.stack([zeros] * (6-len(x_seq)+i) + x_seq[i:(len(x_seq)-1)]+ [neg_vec[len(x_seq)-1]]))
                         y.append([1,0])
                         neg_num += 1
 
-                    # # [zero_padding, seq_vec1, seq_vec2]
-                    # if i < len(x_seq) - 1:
-                    #     X.append(np.stack([zeros,x_seq[i], x_seq[i+1]]))
-                    #     y.append([0,1])
-                    #     pos_num += 1
-                    #
-                    #     X.append(np.stack([zeros, x_seq[i], neg_vec[i+1]]))
-                    #     y.append([1,0])
-                    #     neg_num += 1
-                    # # [zero_padding, zero_padding, seq_vec]
-                    # X.append(np.stack([zeros, zeros,x_seq[i]]))
-                    # y.append([0,1])
-                    # pos_num += 1
-                    #
-                    # X.append(np.stack([zeros,zeros,neg_vec[i]]))
-                    # y.append([1,0])
-                    # neg_num += 1
                 print(pos_num,neg_num)
 
             # for user_id in user_id_to_fps:
@@ -782,7 +771,7 @@ def ml_based(fingerprint_unknown, user_id_to_fps, counter_to_fingerprint, model,
             if last_vec is not None:
                 x_seq_vec.append(last_vec)
             if len(x_seq_vec) > 0:
-                x_seq_vec = [zeros_padding] * (3-len(x_seq_vec)) + x_seq_vec
+                x_seq_vec = [zeros_padding] * (6-len(x_seq_vec)) + x_seq_vec
                 data.append(np.stack(x_seq_vec))
                 new_candidates.append(elt)
         #reshape输入为LSTM的输入格式

@@ -16,7 +16,7 @@ Finally, install the dependencies.
 pip install -r requirements.txt
 ```
 
-# Database
+# Database(I can't upload database because size is too big. But the database which I used can be found in my FPStalker repo forked from FPStalker originally)
 Create a database that will contain the table that stores the fingerprints.
 Then, you have two solutions:
 - Run the command below to generate a sql file tableFingerprints.sql with few fingerprints. It contains 15k fingerprints in this table that were randomly sampled from the first half of the raw dataset, i.e. with no filter.
@@ -27,6 +27,11 @@ tar zxvf extension1.txt.tar.gz; tar zxvf extension2.txt.tar.gz; cat extension1.t
 - Import extensionDataScheme.sql that contains only the scheme of the table to stores the fingerprints.
 
 Change the connection to the database at the top of the main with your credentials.
+
+- Point:
+- 1.create a new database
+- 2.excute sql code in extensionDataScheme.sql to create the structure of table
+- 3.source tableFingerprints.sql to import table data
 
 # Get ids of browser instances with countermeasures
 ```ruby
@@ -59,25 +64,31 @@ python main.py auto myexpname rulebased 6
 python main.py automl myexpname 6
 ```
 In current state, it loads the random forest model contained in the `data/my_ml_model`.
-It was generated on the conditions specified in the article, i.e. 
+It was generated on the conditions specified in the article, i.e.
 To train a new model, one just needs to change the load parameter of the `train_ml` function (in main) to False.
 In order to optimize the lambda parameter, you just need to launch
 ```ruby
 python main.py lambda
 ```
 
-# Benchmark
+# Benchmark(I ignored this part and use my own function to test time complexity)
 
 For the hybrid algorithm:
 
 ```ruby
-python automlbench myfilesprefix 4
+python main.py automlbench myprefix 4
 ```
 Where 4 has to be replaced by the number of cores on your machine.
 
 For the rule-based algorithm:
 ```ruby
 python autorulesbench myfilesprefix 4
+```
+
+# Comparison of results of different algorithm
+
+```ruby
+python results_comparison.py
 ```
 
 # train model
