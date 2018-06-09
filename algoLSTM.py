@@ -31,6 +31,7 @@ from keras.models import load_model
 from keras.callbacks import ModelCheckpoint
 from keras import regularizers
 results = []
+size_fk = 8
 
 
 def generate_replay_sequence(fp_set, visit_frequency):
@@ -328,7 +329,7 @@ def replay_scenario(fingerprint_dataset, visit_frequency, link_fingerprint, \
         link_fingerprint, the function used for the linking strategy
         filename, path to the file to save results of the scenario
     """
-    nb_max_cmp = 6 # obtain 6 known fingerprints for every assignedid
+    nb_max_cmp = size_fk # obtain 6 known fingerprints for every assignedid
     replay_sequence = generate_replay_sequence(fingerprint_dataset, visit_frequency)
     counter_to_fingerprint = dict()
     for fingerprint in fingerprint_dataset:
@@ -452,7 +453,7 @@ def compute_similarity_fingerprint(fp1, fp2, attributes, train_mode):
 
 
 def train_ml(fingerprint_dataset, train_data, load=False,
-             model_path="./data/my_ml_model_bidiLSTM6"):
+             model_path="./data/my_ml_model_LSTM8"):
     if load:
         model = load_model(model_path)
     else:
@@ -527,7 +528,7 @@ def train_ml(fingerprint_dataset, train_data, load=False,
             for user_id in user_id_to_fps:
                 previous_fingerprint = None
                 ### 修改特征适应LSTM
-                if len(user_id_to_fps[user_id])<7: continue
+                if len(user_id_to_fps[user_id])<(size_fk+1): continue
                 x_seq = []
                 neg_vec = []
                 for fingerprint in user_id_to_fps[user_id]:
@@ -547,18 +548,23 @@ def train_ml(fingerprint_dataset, train_data, load=False,
                 zeros = np.zeros(shape=np.shape(x_seq[0]))
                 for i in range(len(x_seq)):
                     # [seq_vec1, seq_vec2, seq_vec3]
-                    if i < (len(x_seq) - 5):
-                        X.append(np.stack(x_seq[i:i+6]))
+                    if i < (len(x_seq) - (size_fk-1)):
+                        X.append(np.stack(x_seq[i:(i+size_fk)]))
                         y.append([0,1])
                         pos_num += 1
-                        X.append(np.stack([x_seq[i],x_seq[i+1], x_seq[i+2],x_seq[i+3],x_seq[i+4],neg_vec[i+5]]))
+
+                        neg_sample = []
+                        for j in range(0,size_fk-1):
+                            neg_sample.append(x_seq[i+j])
+                        neg_sample.append(neg_vec[i+size_fk-1])
+                        X.append(np.stack(neg_sample))
                         y.append([1,0])
                         neg_num += 1
                     else:   # [zeros, seq_vec2, seq_vec3]
-                        X.append(np.stack([zeros] * (6-len(x_seq)+i) + x_seq[i:len(x_seq)]))
+                        X.append(np.stack([zeros] * (size_fk-len(x_seq)+i) + x_seq[i:len(x_seq)]))
                         y.append([0,1])
                         pos_num += 1
-                        X.append(np.stack([zeros] * (6-len(x_seq)+i) + x_seq[i:(len(x_seq)-1)]+ [neg_vec[len(x_seq)-1]]))
+                        X.append(np.stack([zeros] * (size_fk-len(x_seq)+i) + x_seq[i:(len(x_seq)-1)]+ [neg_vec[len(x_seq)-1]]))
                         y.append([1,0])
                         neg_num += 1
 
@@ -771,7 +777,7 @@ def ml_based(fingerprint_unknown, user_id_to_fps, counter_to_fingerprint, model,
             if last_vec is not None:
                 x_seq_vec.append(last_vec)
             if len(x_seq_vec) > 0:
-                x_seq_vec = [zeros_padding] * (6-len(x_seq_vec)) + x_seq_vec
+                x_seq_vec = [zeros_padding] * (size_fk-len(x_seq_vec)) + x_seq_vec
                 data.append(np.stack(x_seq_vec))
                 new_candidates.append(elt)
         #reshape输入为LSTM的输入格式
