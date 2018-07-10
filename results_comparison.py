@@ -85,17 +85,23 @@ for value in patterns1:
     csvs = getFileList('results', value)
     avg_max_time_log = {}
     avg_id_log = {}
+    avg_track_duration_log = {}
     for interval, cf in csvs.items():
         log1 = avg_max_time_func('results/%s' % cf)
         avg_max_time_log[interval] = log1
         log2 = avg_id_func('results/%s'%cf)
         avg_id_log[interval] = log2
+        log3 = avg_track_duration_func('results/%s'%cf)
+        avg_track_duration_log[interval] = log3
     avg_max_time = sorted(avg_max_time_log.items(), key=lambda k:k[0], reverse=False)
     print("avg_max_time:")
     print(avg_max_time)
     avg_id = sorted(avg_id_log.items(), key=lambda k:k[0], reverse=False)
     print("avg_id:")
     print(avg_id)
+    avg_track_duration = sorted(avg_track_duration_log.items(), key=lambda k:k[0], reverse=False)
+    print("avg_track_duration:")
+    print(avg_track_duration)
     with open("analyse/analysis_avg_max_time.csv", "a") as f1:
         f1.write("\n%s\n" % name.group(0))
         for i in avg_max_time:
@@ -104,27 +110,21 @@ for value in patterns1:
         f2.write("\n%s\n" % name.group(0))
         for i in avg_id:
             f2.write("%s\n" % i[1])
-
-for value in patterns2:
-    name = re.search(r'[a-zA-Z]+-[a-zA-Z]+', value)
-    csvs = getFileList('results', value)
-    avg_track_duration_log = {}
-    ownership_log = {}
-    for interval, cf in csvs.items():
-        log3 = avg_track_duration_func('results/%s'%cf)
-        avg_track_duration_log[interval] = log3
-        log4 = ownership_func('results/%s'%cf)
-        ownership_log[interval] = log4
-    avg_track_duration = sorted(avg_track_duration_log.items(), key=lambda k:k[0], reverse=False)
-    print("avg_track_duration:")
-    print(avg_track_duration)
-    ownership = sorted(ownership_log.items(), key=lambda k:k[0], reverse=False)
-    print("ownership:")
-    print(ownership)
     with open("analyse/analysis_avg_track_duration.csv", "a") as f3:
         f3.write("\n%s\n" % name.group(0))
         for i in avg_track_duration:
             f3.write("%s\n" % i[1])
+
+for value in patterns2:
+    name = re.search(r'[a-zA-Z]+-[a-zA-Z]+', value)
+    csvs = getFileList('results', value)
+    ownership_log = {}
+    for interval, cf in csvs.items():
+        log4 = ownership_func('results/%s'%cf)
+        ownership_log[interval] = log4
+    ownership = sorted(ownership_log.items(), key=lambda k:k[0], reverse=False)
+    print("ownership:")
+    print(ownership)
     with open("analyse/analysis_ownership.csv", "a") as f4:
         f4.write("\n%s\n" % name.group(0))
         for i in ownership:
